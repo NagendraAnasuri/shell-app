@@ -13,18 +13,20 @@ export default defineConfig({
           products: {
             type: "module",
             name: "products",
-            entry: 'http://localhost:5001/remoteEntry.js',
+            entry: 'https://products-app-dusky.vercel.app/remoteEntry.js',
           },
 
           cart: {
             type: "module",
             name: "cart",
-            entry: 'http://localhost:5002/remoteEntry.js',
+            entry: 'https://cart-app-puce-phi.vercel.app/remoteEntry.js',
         }
       },
     }),
   ],
-  server: {
-    port: 5000,
-  },
+  build: {
+    target: "esnext",
+    modulePreload: false,
+    cssCodeSplit: false
+  }
 })
